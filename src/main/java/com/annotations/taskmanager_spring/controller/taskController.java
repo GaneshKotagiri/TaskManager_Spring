@@ -38,7 +38,7 @@ public class taskController {
         return ResponseEntity.ok(task);
     }
     @PatchMapping("/{id}")
-    public ResponseEntity<taskEntities> updateTaskById(@PathVariable("id") Integer id, @RequestBody UpdateDTO body) throws ParseException {
+    public ResponseEntity<taskEntities> update(@PathVariable("id") Integer id, @RequestBody UpdateDTO body) throws ParseException {
         var task=taskService.update(id,body.getDescription(),body.getDeadline(),body.getCompleted());
         if(task==null){
             return ResponseEntity.notFound().build();
