@@ -29,4 +29,21 @@ public class noteService {
         }
         return taskNoteHolders.get(taskId).notes;
     }
+    public noteEntity addNoteForTask(int taskId,String title,String body){
+        taskEntities task=taskService.getTaskById(taskId);
+        if (task == null) {
+            return null;
+        }
+        if(taskNoteHolders.get(taskId)==null){
+            taskNoteHolders.put(taskId, new taskNotesHolder());
+        }
+        taskNotesHolder taskNotesHolder=taskNoteHolders.get(taskId);
+        noteEntity note=new noteEntity();
+        note.setId(taskNotesHolder.noteId);
+        note.setTitle(title);
+        note.setBody(body);
+        taskNotesHolder.notes.add(note);
+        taskNotesHolder.noteId++;
+        return note;
+    }
 }
