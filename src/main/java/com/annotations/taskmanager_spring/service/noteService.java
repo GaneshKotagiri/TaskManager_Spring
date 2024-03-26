@@ -39,7 +39,7 @@ public class noteService {
         }
         taskNotesHolder taskNotesHolder=taskNoteHolders.get(taskId);
         noteEntity note=new noteEntity();
-        note.setId(taskNotesHolder.noteId);
+        note.setNoteId(taskNotesHolder.noteId);
         note.setTitle(title);
         note.setBody(body);
         taskNotesHolder.notes.add(note);

@@ -21,7 +21,7 @@ public class noteController {
         var notes=noteService.getNotesForTask(taskId);
         return ResponseEntity.ok(notes);
     }
-    @GetMapping("")
+    @PostMapping("")
     public ResponseEntity<noteResponseDTO> addNote(@PathVariable("taskId") Integer taskId, @RequestBody noteDTO body){
         var note=noteService.addNoteForTask(taskId,body.getTitle(),body.getBody());
         return ResponseEntity.ok(new noteResponseDTO(taskId, note));

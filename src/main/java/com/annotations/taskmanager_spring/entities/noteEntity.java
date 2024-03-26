@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class noteEntity {
-    private int id;
+    private int noteId;
     private String title;
     private String body;
 }
